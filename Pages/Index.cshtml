@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<section class="section">
+
+    <div class="container-fluid">
+
+        <h1 class="mb-3">Restaurant recommendation</h1>
+
+        <form action="/food/restaurant">
+            <div class="form-group">
+                <label for="dishSelect">Select favorite dish:</label>
+                <select class="form-control" id="dishSelect" asp-for="SelectedDish" asp-items="Model.Dishes"></select>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Search" />
+
+        </form>
+
+    </div>
+
+</section>
+

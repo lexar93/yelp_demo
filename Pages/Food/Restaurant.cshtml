@@ -1,0 +1,54 @@
+﻿@page
+@model KnowledgeGraph.Pages.Food.RestaurantModel
+@{
+    ViewData["Title"] = "Recommended restaurants";
+}
+
+    <section class="section">
+
+        <div class="container-fluid">
+
+            <h1 class="mb-3">Recommended restaurants</h1>
+
+            <div class="row">
+
+                <div class="col">
+
+                    <table class="table table-bordered table-hover">
+
+                        @*
+                        jsonResponse["names"].Count()
+                        jsonResponse["values"].Count()
+                        *@
+                        <tr>
+                            @foreach (var title in Model.jsonResponse["names"])
+                            {
+                                <th>@title</th>
+                            }
+                        </tr>
+
+                        @foreach (var item in Model.jsonResponse["values"])
+                        {
+                            <tr>
+                                @for (var i = 0; i < Model.jsonResponse["names"].Count(); i++)
+                                {
+                                    <td><a href="/food/dishes?SelectedRestaurant=@item[i]" style="display:block;">@item[i]</a></td>
+
+                                }
+                            </tr>
+
+                        }
+                    </table>
+                </div>
+                <div class="col">
+
+                    <img src="~/images/dashboard_example.png" alt="Dashboard Example" />
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<p>@Model.resultQuery</p>

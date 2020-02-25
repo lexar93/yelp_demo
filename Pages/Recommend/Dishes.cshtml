@@ -1,0 +1,25 @@
+﻿@page
+@model KnowledgeGraph.Pages.Recommend.DishesModel
+@{
+    ViewData["Title"] = "Dishes";
+}
+
+<section class="section">
+
+    <div class="container-fluid">
+
+        <h1 class="mb-3">Dishes recommendation</h1>
+
+        <form action="/food/dishes">
+            <div class="form-group">
+                <label for="dishSelect">Select restaurant:</label>
+                <select class="form-control" id="dishSelect" asp-for="SelectedRestaurant" asp-items="Model.Restaurants"></select>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Search" />
+
+        </form>
+
+    </div>
+
+</section>
+
